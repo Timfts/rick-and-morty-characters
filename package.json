@@ -1,0 +1,14 @@
+{
+  "name": "rick-and-morty-chars",
+  "version": "1.0.0",
+  "description": "A web-components based app",
+  "main": "index.js",
+  "author": "Tim fontes",
+  "license": "MIT",
+  "scripts": {
+    "dev": "http-server src -o -c-1"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  }
+}
