@@ -34,3 +34,4 @@ export default class CustomButton extends ShadowElement {
     `;
   }
 }
+

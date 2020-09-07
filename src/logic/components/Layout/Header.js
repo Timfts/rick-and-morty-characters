@@ -27,8 +27,9 @@ export default class Header extends ShadowElement {
   connectedCallback() {
     this.startShadow();
 
-    this.addEventListener("click", () => {
-      console.log(this.queryElements("h2"));
+    const buttond = this.queryElements("pure-button");
+    buttond.addEventListener("click", (e) => {
+      buttond.label = "sd";
     });
   }
 
@@ -36,6 +37,7 @@ export default class Header extends ShadowElement {
     return `
       <header>
         <slot></slot>
+        <pure-button label="batatatinha"></pure-button>
       </header>
     `;
   }
