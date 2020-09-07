@@ -1,6 +1,6 @@
-import BaseElement from "/logic/base/BaseElement.js";
+import ShadowElement from "/logic/base/ShadowElement.js";
 
-export default class CustomButton extends BaseElement {
+export default class CustomButton extends ShadowElement {
   static displayName = "custom-button";
 
   style = `

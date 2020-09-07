@@ -1,6 +1,6 @@
-import BaseElement from "/logic/base/BaseElement.js";
+import ShadowElement from "/logic/base/ShadowElement.js";
 
-export default class Header extends BaseElement {
+export default class Header extends ShadowElement {
   static displayName = "header-component";
 
   style = `
@@ -26,6 +26,10 @@ export default class Header extends BaseElement {
 
   connectedCallback() {
     this.startShadow();
+
+    this.addEventListener("click", () => {
+      console.log(this.queryElements("h2"));
+    });
   }
 
   template() {

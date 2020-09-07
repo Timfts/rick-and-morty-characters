@@ -1,4 +1,4 @@
-export default class BaseElement extends HTMLElement {
+export default class ShadowElement extends HTMLElement {
   style = "";
 
   constructor() {

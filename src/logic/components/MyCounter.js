@@ -1,4 +1,4 @@
-import BaseComponent from "/logic/base/BaseElement.js";
+import BaseComponent from "/logic/base/ShadowElement.js";
 
 export default class MyCounter extends BaseComponent {
   static displayName = "my-counter";
