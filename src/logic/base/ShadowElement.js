@@ -7,6 +7,7 @@ export default class ShadowElement extends HTMLElement {
     this.shadow = shadowReference;
   }
 
+  /** @override */
   queryElements(query, all = false) {
     if (all) {
       return this.shadow.querySelectorAll(query);

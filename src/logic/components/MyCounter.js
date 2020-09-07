@@ -1,6 +1,6 @@
-import BaseComponent from "/logic/base/ShadowElement.js";
+import ShadowElement from "/logic/base/ShadowElement.js";
 
-export default class MyCounter extends BaseComponent {
+export default class MyCounter extends ShadowElement {
   static displayName = "my-counter";
 
   constructor() {
@@ -11,6 +11,10 @@ export default class MyCounter extends BaseComponent {
   connectedCallback() {
     this.startShadow();
     this._startListeners();
+  }
+
+  disconnectedCallback() {
+    this._cleanListeners();
   }
 
   _queryElements() {
@@ -48,6 +52,7 @@ export default class MyCounter extends BaseComponent {
     counter.innerHTML = this.counter;
   }
 
+  /** @override */
   template() {
     return `
       <button id="subtract"> - </button>
