@@ -1,4 +1,4 @@
-import ShadowElement from "/logic/base/ShadowElement.js";
+import ShadowElement from "../base/ShadowElement.js";
 
 export default class MyCounter extends ShadowElement {
   static displayName = "my-counter";
@@ -6,6 +6,8 @@ export default class MyCounter extends ShadowElement {
   constructor() {
     super();
     this.counter = 0;
+    this._addNumber = this._addNumber.bind(this);
+    this._removeNumber = this._removeNumber.bind(this);
   }
 
   connectedCallback() {
@@ -37,15 +39,15 @@ export default class MyCounter extends ShadowElement {
     addBtn.removeEventListener("click", this._addNumber);
   }
 
-  _addNumber = () => {
+  _addNumber() {
     this.counter += 1;
     this._updateCounter();
-  };
+  }
 
-  _removeNumber = () => {
+  _removeNumber() {
     this.counter -= 1;
     this._updateCounter();
-  };
+  }
 
   _updateCounter() {
     const { counter } = this._queryElements();

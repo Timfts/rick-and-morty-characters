@@ -1,4 +1,4 @@
-import ShadowElement from "/logic/base/ShadowElement.js";
+import ShadowElement from "../../base/ShadowElement.js";
 
 export default class Header extends ShadowElement {
   static displayName = "header-component";
