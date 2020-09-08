@@ -1,10 +1,31 @@
+import { registerComponent } from "./utils.js";
+
 export default class App {
   constructor({ componentsList = [] }) {
     this.componentsList = componentsList;
   }
 
   run() {
+    this._startThemeToggleEvent();
     this._registerComponents();
+  }
+
+  _startThemeToggleEvent() {
+    // check local storage
+    // set theme
+    // start litener
+    document.addEventListener("toggleTheme", () => {
+      const body = document.querySelector("body");
+      this._dispatchThemeToggled();
+    });
+  }
+
+  _dispatchThemeToggled() {
+    const themeToggleEvent = new CustomEvent("themeToggled", {
+      composed: true,
+    });
+
+    window.dispatchEvent(themeToggleEvent);
   }
 
   _registerComponents() {
@@ -13,7 +34,7 @@ export default class App {
       if (!componentDisplayName) {
         throw new Error("component without displayName");
       } else {
-        window.customElements.define(componentDisplayName, ComponentClass);
+        registerComponent(componentDisplayName, ComponentClass);
       }
     });
   }

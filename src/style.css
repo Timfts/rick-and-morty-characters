@@ -1,0 +1,27 @@
+/* variables */
+.dark-theme {
+  --header-color: black;
+  --header-text-color: white;
+}
+
+.light-theme {
+  --header-color: white;
+  --header-text-color: black;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing:inherit;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  background-color: aquamarine;
+  font-family: "Quicksand", sans-serif;
+  padding-top: 80px;
+  box-sizing:border-box;
+}

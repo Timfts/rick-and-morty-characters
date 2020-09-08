@@ -26,7 +26,7 @@ export default class ShadowElement extends HTMLElement {
 
     this.shadow.innerHTML = `
       <style>
-        *:
+        *
         *::before,
         *::after{
           margin:0;
