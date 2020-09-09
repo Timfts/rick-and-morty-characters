@@ -14,7 +14,7 @@ export default class ThemeToggleButton extends CustomButton {
   }
   /** @override */
   connectedCallback() {
-    this.startShadow();
+    super.connectedCallback();
 
     this.addEventListener("click", this._dispatchThemeEvent);
     this._listenForThemeChange();
@@ -24,9 +24,13 @@ export default class ThemeToggleButton extends CustomButton {
     this.removeEventListener("click", this._dispatchThemeEvent);
   }
 
+  _getButtonRoot() {
+    return this.queryElements("button");
+  }
+
   _listenForThemeChange() {
-    window.addEventListener("themeToggled", () => {
-      console.log("change style");
+    window.addEventListener("themeToggled", ({ detail }) => {
+      console.log(detail);
     });
   }
 

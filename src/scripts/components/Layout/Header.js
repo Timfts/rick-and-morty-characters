@@ -37,7 +37,7 @@ export default class Header extends ShadowElement {
   }
 
   connectedCallback() {
-    this.startShadow();
+    super.connectedCallback();
   }
 
   template() {

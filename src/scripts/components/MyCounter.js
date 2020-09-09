@@ -11,7 +11,7 @@ export default class MyCounter extends ShadowElement {
   }
 
   connectedCallback() {
-    this.startShadow();
+    super.connectedCallback();
     this._startListeners();
   }
 

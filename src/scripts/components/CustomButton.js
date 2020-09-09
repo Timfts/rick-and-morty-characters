@@ -8,7 +8,7 @@ export default class CustomButton extends ShadowElement {
   }
 
   connectedCallback() {
-    this.startShadow();
+    super.connectedCallback();
   }
 
   // @override

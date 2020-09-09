@@ -7,6 +7,10 @@ export default class ShadowElement extends HTMLElement {
     this.shadow = shadowReference;
   }
 
+  connectedCallback() {
+    this._startShadow();
+  }
+
   /** @override */
   queryElements(query, all = false) {
     if (all) {
@@ -20,7 +24,7 @@ export default class ShadowElement extends HTMLElement {
     return "";
   }
 
-  startShadow() {
+  _startShadow() {
     const template = this.template();
     const styleTemplate = !!this.style ? this.style : "";
 

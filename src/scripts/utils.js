@@ -11,3 +11,5 @@
 export function registerComponent(elementDisplayName, ComponentClass) {
   window.customElements.define(elementDisplayName, ComponentClass);
 }
+
+export const bodyReference = document.querySelector("body");
