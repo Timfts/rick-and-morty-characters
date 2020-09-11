@@ -36,7 +36,10 @@ function checkIfAlreadyHasTheme() {
   const keyOnStore = window.localStorage.getItem(LOCAL_STORAGE_KEY);
   const isKeyOnStoreValid = validateThemeKey(keyOnStore);
 
-  if (hasClassOnBody && !isKeyOnStoreValid) {
+  if (isKeyOnStoreValid) {
+    const newClass = `${keyOnStore}-theme`;
+    bodyReference.classList.add(newClass);
+  } else if (hasClassOnBody) {
     const themeKey = currentThemeClass.replace("-theme", "");
     window.localStorage.setItem(LOCAL_STORAGE_KEY, themeKey);
   }
