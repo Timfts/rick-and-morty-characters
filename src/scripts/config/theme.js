@@ -13,8 +13,14 @@ function addThemeClassToBody(themeClass) {
   bodyReference.classList.add(themeClass);
 }
 
-function removeThemeClassFromBody(themeClass) {
-  bodyReference.classList.remove(themeClass);
+function clearThemeClassesFromBody(themeClass) {
+  const bodyClasses = Array.from(bodyReference.classList);
+  return bodyClasses.forEach((className) => {
+    const isThemeClass = className.endsWith("-theme");
+    if (isThemeClass) {
+      bodyReference.classList.remove(className);
+    }
+  });
 }
 
 function getCurrentThemeClass() {
@@ -37,6 +43,7 @@ function checkIfAlreadyHasTheme() {
   const isKeyOnStoreValid = validateThemeKey(keyOnStore);
 
   if (isKeyOnStoreValid) {
+    clearThemeClassesFromBody();
     const newClass = `${keyOnStore}-theme`;
     bodyReference.classList.add(newClass);
   } else if (hasClassOnBody) {
@@ -62,7 +69,7 @@ export function configAppTheming() {
     const isSameTheme = newThemeClass === currentThemeClass;
 
     if (!isSameTheme) {
-      removeThemeClassFromBody(currentThemeClass);
+      clearThemeClassesFromBody();
       addThemeClassToBody(newThemeClass);
       window.localStorage.setItem(LOCAL_STORAGE_KEY, themeToUse);
       const themeChangedEvent = getOnChangeThemeEvent(themeToUse);
