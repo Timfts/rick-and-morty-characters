@@ -12,4 +12,14 @@ export function registerComponent(elementDisplayName, ComponentClass) {
   window.customElements.define(elementDisplayName, ComponentClass);
 }
 
+/**
+ * Check if object is a dom node
+ * @param {HTMLElement} domNode
+ */
+export function validateDomNode(domNode) {
+  if (!domNode instanceof HTMLElement) {
+    throw new TypeError("invalid dom node");
+  }
+}
+
 export const bodyReference = document.querySelector("body");

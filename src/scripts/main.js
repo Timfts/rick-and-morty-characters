@@ -4,8 +4,10 @@ import MyCounter from "./components/MyCounter.js";
 import Header from "./components/Layout/Header.js";
 import PureButton from "./components/PureButton.js";
 import ThemeToggleButton from "./components/ThemeToggleButton.js";
+import MainContainer from "./components/MainContainer.js"
 
-const componentsList = [
+const usedComponents = [
+  MainContainer,
   Header,
   MyCounter,
   CustomButton,
@@ -13,6 +15,8 @@ const componentsList = [
   ThemeToggleButton,
 ];
 
-const myApp = new App({ componentsList });
+const myApp = new App({
+  componentsList: usedComponents,
+});
 
 myApp.run();
