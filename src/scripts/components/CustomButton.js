@@ -1,7 +1,9 @@
 import ShadowElement from "../base/ShadowElement.js";
 
 export default class CustomButton extends ShadowElement {
-  static displayName = "custom-button";
+  static get displayName() {
+    return "custom-button";
+  }
 
   constructor() {
     super();

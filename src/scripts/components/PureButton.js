@@ -3,7 +3,9 @@ const constants = {
 };
 
 export default class PureButton extends HTMLElement {
-  static displayName = "pure-button";
+  static get displayName() {
+    return "pure-button";
+  }
   constructor() {
     super();
   }

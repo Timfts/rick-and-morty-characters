@@ -2,7 +2,9 @@ import ShadowElement from "../base/ShadowElement.js";
 import ThemeManagerMixin from "../mixins/ThemeManagerMixin.js";
 
 class MainContainer extends ThemeManagerMixin(ShadowElement) {
-  static displayName = "main-container";
+  static get displayName() {
+    return "main-container";
+  }
 
   constructor() {
     super();
@@ -10,7 +12,6 @@ class MainContainer extends ThemeManagerMixin(ShadowElement) {
 
   connectedCallback() {
     super.connectedCallback();
-    
   }
 
   template() {

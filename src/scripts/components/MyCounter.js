@@ -1,7 +1,9 @@
 import ShadowElement from "../base/ShadowElement.js";
 
 export default class MyCounter extends ShadowElement {
-  static displayName = "my-counter";
+  static get displayName() {
+    return "my-counter";
+  }
 
   constructor() {
     super();
