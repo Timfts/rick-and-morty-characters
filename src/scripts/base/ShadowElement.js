@@ -10,12 +10,12 @@ export default class ShadowElement extends HTMLElement {
   }
 
   /** @override */
-  queryElements(query, all = false) {
-    if (all) {
-      return this.shadow.querySelectorAll(query);
-    } else {
-      return this.shadow.querySelector(query);
-    }
+  querySelector(query) {
+    return this.shadow.querySelector(query);
+  }
+
+  querySelectorAll(query) {
+    return this.shadow.querySelectorAll(query);
   }
 
   template() {
