@@ -24,7 +24,7 @@ export default class Header extends ShadowElement {
           top:0;
         }
         header {
-          background-color: var(--header-color, black);
+          background-color: var(--header-bg-color, black);
           display:flex;
           align-items:center;
           justify-content:center;
@@ -39,7 +39,7 @@ export default class Header extends ShadowElement {
         }
     
         ::slotted(h2){
-          color:white;
+          color: var(--header-title-color, white);
           text-align:center;
         }
       </style>
@@ -48,7 +48,9 @@ export default class Header extends ShadowElement {
           <slot></slot>
         </div>
         <div class="btn-holder">
-          <theme-toggle-button>change theme</theme-toggle-button>
+          <theme-toggle-button 
+            color-variable="--header-title-color">
+          </theme-toggle-button>
         </div>
       </header>
     `;

@@ -18,6 +18,7 @@ export default class MyCounter extends ShadowElement {
   }
 
   disconnectedCallback() {
+    super.disconnectedCallback();
     this._cleanListeners();
   }
 

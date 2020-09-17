@@ -8,25 +8,47 @@ class ThemeToggleButton extends ThemeManagerMixin(CustomButton) {
 
   constructor() {
     super();
+    this._toggleThemeEvent = this._toggleThemeEvent.bind(this);
   }
 
   connectedCallback() {
     super.connectedCallback();
 
-    this.addEventListener("click", () => {
-      this.toggleThemes(["dark", "light"]);
-    });
+    this.addEventListener("click", this._toggleThemeEvent);
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this.removeEventListener("click", this._toggleThemeEvent);
+  }
+
+  _toggleThemeEvent(e) {
+    this.toggleThemes(["dark", "light"]);
   }
 
   template() {
+    const colorVarAttr = this.getAttribute("color-variable");
+    const colorVarProp = colorVarAttr ? `color: var(${colorVarAttr})` : "";
+
     return `
       <style>
-        button{
-          background-color:red;
+        button {
+          font-family: "Material Icons";
+          text-decoration:none;
+          background-color: transparent;
+          border-radius:20px;
+          outline:none;
+          border:none;
+          cursor:pointer;
+        }
+        i {
+          font-style: normal;
+          font-size:20px;
+          ${colorVarProp}
         }
       </style>
       <button>
-        <slot></slot>
+        <i>brightness_3</i>
       </button>
     `;
   }

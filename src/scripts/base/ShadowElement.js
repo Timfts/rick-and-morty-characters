@@ -14,6 +14,7 @@ export default class ShadowElement extends HTMLElement {
     return this.shadow.querySelector(query);
   }
 
+  /** @override */
   querySelectorAll(query) {
     return this.shadow.querySelectorAll(query);
   }

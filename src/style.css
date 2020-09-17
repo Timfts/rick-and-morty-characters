@@ -1,12 +1,22 @@
 /* variables */
+
+:root {
+  --color-black: black;
+  --color-white: white;
+}
+
 .dark-theme {
-  --header-color: black;
-  --header-text-color: white;
+  --background-color: var(--color-black);
+
+  --header-bg-color: var(--color-white);
+  --header-title-color: var(--color-black);
 }
 
 .light-theme {
-  --header-color: white;
-  --header-text-color: black;
+  --background-color: var(--color-white);
+
+  --header-bg-color: var(--color-black);
+  --header-title-color: var(--color-white);
 }
 
 *,
@@ -14,14 +24,24 @@
 *::after {
   margin: 0;
   padding: 0;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 
 body {
   height: 100vh;
   width: 100%;
-  background-color: aquamarine;
   font-family: "Quicksand", sans-serif;
   padding-top: 80px;
-  box-sizing:border-box;
+  box-sizing: border-box;
+  background-color: var(--background-color);
 }
+
+.search-holder {
+  display: flex;
+  justify-content: center;
+  max-width:400px;
+  width:90%;
+  margin:0 auto;
+}
+
+

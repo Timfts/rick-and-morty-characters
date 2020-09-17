@@ -4,7 +4,8 @@ import MyCounter from "./components/MyCounter.js";
 import Header from "./components/Layout/Header.js";
 import PureButton from "./components/PureButton.js";
 import ThemeToggleButton from "./components/ThemeToggleButton.js";
-import MainContainer from "./components/MainContainer.js"
+import MainContainer from "./components/MainContainer.js";
+import SearchInput from "./components/SearchInput.js";
 
 const usedComponents = [
   MainContainer,
@@ -13,6 +14,7 @@ const usedComponents = [
   CustomButton,
   PureButton,
   ThemeToggleButton,
+  SearchInput,
 ];
 
 const myApp = new App({
