@@ -3,10 +3,9 @@ import { configAppTheming } from "./config/theme.js";
 import { createStore } from "./config/globalStore.js";
 
 export default class App {
-  constructor({ componentsList = [], themes = [], initialState = [] }) {
+  constructor({ componentsList = [], initialState = [] }) {
     this.componentsList = componentsList;
     this.initialState = initialState;
-    this.themes = themes;
   }
 
   run() {
