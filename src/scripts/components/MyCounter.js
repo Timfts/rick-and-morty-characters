@@ -14,19 +14,11 @@ export default class MyCounter extends ShadowElement {
   /** @override */
   connectedCallback() {
     super.connectedCallback();
-    this._startListeners();
+    this.addEventListener("click", this._handleClick);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    this._cleanListeners();
-  }
-
-  _startListeners() {
-    this.addEventListener("click", this._handleClick);
-  }
-
-  _cleanListeners() {
     this.removeEventListener("click", this._handleClick);
   }
 
@@ -58,7 +50,7 @@ export default class MyCounter extends ShadowElement {
   template() {
     return `
       <button id="subtract"> - </button>
-      <span id="counter">${this.counter}</span>
+        <span id="counter">${this.counter}</span>
       <button id="add"> + </button>
     `;
   }
