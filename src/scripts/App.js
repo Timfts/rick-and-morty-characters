@@ -1,14 +1,17 @@
 import { registerComponent } from "./utils.js";
 import { configAppTheming } from "./config/theme.js";
+import { createStore } from "./config/globalStore.js";
 
 export default class App {
-  constructor({ componentsList = [], themes = [] }) {
+  constructor({ componentsList = [], themes = [], initialState = [] }) {
     this.componentsList = componentsList;
+    this.initialState = initialState;
     this.themes = themes;
   }
 
   run() {
     configAppTheming();
+    createStore(this.initialState);
     this._registerComponents();
   }
 
