@@ -23,7 +23,7 @@ export default class CardDefault extends ShadowElement {
       </style>
 
       <div class="card-default">
-        my custom card
+        <slot></slot>
       </div>
     `;
   }

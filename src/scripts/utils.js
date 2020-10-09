@@ -23,3 +23,19 @@ export function validateDomNode(domNode) {
 }
 
 export const bodyReference = document.querySelector("body");
+
+/**
+ * Helper function to map data to html
+ * @param {Array} itemsArray
+ * 
+ */
+export const mapElements = (itemsArray) => ({
+  render: (cb) =>
+    itemsArray.reduce((acc, item) => {
+      const itemTemplate = cb(item);
+
+      return `${acc}
+              ${itemTemplate}
+            `;
+    }, ""),
+});
