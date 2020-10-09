@@ -3,20 +3,24 @@
 :root {
   --color-black: black;
   --color-white: white;
+  --color-gray-one: #eeeeee;
+  --color-gray-darkest: rgb(36, 40, 47);
 }
 
 .dark-theme {
-  --background-color: var(--color-black);
+  --background-color: var(--color-gray-darkest);
 
   --header-bg-color: var(--color-white);
-  --header-title-color: var(--color-black);
+  --header-title-color: var(--color-gray-darkest);
+  --search-input-bg: var(--color-gray-one);
 }
 
 .light-theme {
   --background-color: var(--color-white);
 
-  --header-bg-color: var(--color-black);
+  --header-bg-color: var(--color-gray-darkest);
   --header-title-color: var(--color-white);
+  --search-input-bg: var(--color-gray-one);
 }
 
 *,
@@ -39,9 +43,9 @@ body {
 .search-holder {
   display: flex;
   justify-content: center;
-  max-width:400px;
-  width:90%;
-  margin:0 auto;
+  max-width: 500px;
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  padding-top: 30px;
 }
-
-

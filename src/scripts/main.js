@@ -22,7 +22,8 @@ const usedComponents = [
 ];
 
 const initialAppState = {
-  charachtersList: [],
+  charactersList: [],
+  isCharactersLoading: false
 };
 
 const myApp = new App({

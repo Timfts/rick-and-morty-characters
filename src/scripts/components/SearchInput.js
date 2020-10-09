@@ -1,6 +1,10 @@
 import ShadowElement from "../base/ShadowElement.js";
+import { getRequest, CHARACTERS_ENDPOINT } from "../config/api.js";
+import GlobalStoreManagerMixin from "../mixins/GlobalStoreManagerMixin.js";
 
-export default class SearchInput extends ShadowElement {
+export default class SearchInput extends GlobalStoreManagerMixin(
+  ShadowElement
+) {
   static get displayName() {
     return "search-input";
   }
@@ -26,7 +30,23 @@ export default class SearchInput extends ShadowElement {
   _typingEvent(e) {
     const target = e.target || {};
     const value = target.value;
-    console.log(value);
+    this._searchForChars(value);
+  }
+
+  _searchForChars(inputValue) {
+    this.modifyGlobalState("isCharactersLoading", true);
+
+    getRequest(`${CHARACTERS_ENDPOINT}/?name=${inputValue}`).then(
+      (response) => {
+        const safeResponse = response || {};
+        const characters = safeResponse.results || [];
+
+        if (characters) {
+          this.modifyGlobalState("charactersList", characters);
+          this.modifyGlobalState("isCharactersLoading", false);
+        }
+      }
+    );
   }
 
   template() {
@@ -40,9 +60,11 @@ export default class SearchInput extends ShadowElement {
           padding: 20px;
           font-size:17px;
           flex:1;
-          border-radius:30px;
+          border-radius:20px;
           outline:none;
-          border: 1px solid black;
+          border:none;
+          background-color: var(--search-input-bg, gray);
+          box-shadow: 9px 9px 19px -1px rgba(0,0,0,0.22);
         }
       </style>
       <input type="text" placeholder="Character name" />
